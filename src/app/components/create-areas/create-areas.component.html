@@ -26,7 +26,7 @@
                     placeholder="Ingrese el código del líder" formControlName="leader"
                     [ngClass]="{ 'is-invalid': submitted && f['leader'].errors }" />
                 <div *ngIf="submitted && f['leader'].errors" class="invalid-feedback text-center">
-                    <div *ngIf="f['leader'].errors">Por favor ingrese el código de área (Máximo 7 caracteres)</div>
+                    <div *ngIf="f['leader'].errors">Por favor ingrese el código del líder (Máximo 7 caracteres)</div>
                 </div>
             </div>
             <div class="form-group mb-3">
