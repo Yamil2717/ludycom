@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "ludycom-d2107": {
+      "hosting": {
+        "ludycom": [
+          "ludycom-d2107"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "ludycom-d2107"
+  }
+}

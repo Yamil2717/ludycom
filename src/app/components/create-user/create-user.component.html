@@ -1,0 +1,70 @@
+<div class="container-page">
+    <app-navbar></app-navbar>
+    <div class="container my-5">
+        <h2>{{title}}</h2>
+        <form [formGroup]="createUser" (ngSubmit)="handleSubmit()">
+            <div class="form-group">
+                <label for="name">Nombres:</label>
+                <input type="text" class="form-control" id="name" placeholder="Ingrese su nombre/s" formControlName="name" [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" />
+                <div *ngIf="submitted && f['name'].errors" class="invalid-feedback text-center">
+                    <div *ngIf="f['name'].errors">Por favor ingrese sus nombres (Máximo 50 caracteres)</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Apellidos:</label>
+                <input type="text" class="form-control" id="lastName" placeholder="Ingrese su apellido/s" formControlName="lastName" [ngClass]="{ 'is-invalid': submitted && f['lastName'].errors }" >
+                <div *ngIf="submitted && f['lastName'].errors" class="invalid-feedback text-center">
+                    <div>Por favor ingrese sus apellidos (Máximo 50 caracteres)</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="dateOfBirth">Fecha de nacimiento:</label>
+                <input type="date" class="form-control" id="dateOfBirth" formControlName="dateOfBirth" [ngClass]="{ 'is-invalid': submitted && f['dateOfBirth'].errors }" >
+                <div *ngIf="submitted && f['dateOfBirth']errors" class="invalid-feedback text-center">
+                    <div>Por favor ingrese su fecha de nacimiento</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">Correo electrónico:</label>
+                <input type="email" class="form-control" id="email" placeholder="Ingrese su correo electrónico" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" >
+                <div *ngIf="submitted && f['email'].errors" class="invalid-feedback text-center">
+                    <div>Por favor ingrese su correo electrónico</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="dni">Documento de identidad:</label>
+                <input type="number" maxlength="7" class="form-control" id="dni" placeholder="Ingrese su documento de identidad" formControlName="dni" [ngClass]="{ 'is-invalid': submitted && f['dni'].errors }" >
+                <div *ngIf="submitted && f['dni'].errors" class="invalid-feedback text-center">
+                    <div>Por favor ingrese su número de documento</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="area">Area:</label>
+                <input type="number" maxlength="2" class="form-control" id="area" placeholder="Ingrese el area del usuario" formControlName="area" [ngClass]="{ 'is-invalid': submitted && f['area'].errors }" >
+                <div *ngIf="submitted && f['area'].errors" class="invalid-feedback text-center">
+                    <div>Por favor ingrese el código del área asignada (Máximo 2 caracteres)</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="salary">Salario:</label>
+                <input type="number" maxlength="10" class="form-control" id="salary" placeholder="Ingrese el salario del usuario" formControlName="salary" [ngClass]="{ 'is-invalid': submitted && f['salary'].errors }" >
+                <div *ngIf="submitted && f['salary'].errors" class="invalid-feedback text-center">
+                    <div>Por favor ingrese el salario (Máximo 10 caracteres)</div>
+                </div>
+            </div>
+            <div class="form-group mb-3">
+                <label for="status">¿Se encuentra el usuario activo?</label>
+                <select id="status" class="form-select" aria-label="status" formControlName="status">
+                    <option value="Si" selected>Si</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+            <div *ngIf="loading" class="d-flex justify-content-center">
+                <div class="spinner-border" role="status">
+                    <span class="sr-only">Cargando...</span>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary w-100 mt-2">{{buttonText}}</button>
+        </form>
+    </div>
+</div>

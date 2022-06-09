@@ -1,0 +1,15 @@
+.bg {
+    min-height: 100vh;
+    background: #02021a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-bg {
+    background-image: url(../../../assets/img/bg.jpg);
+    background-color: #0a53be;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}

@@ -1,0 +1,45 @@
+<div class="container-page">
+    <app-navbar></app-navbar>
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-body">
+                <span class="h2">Listado de usuarios</span>
+                <a routerLink="/create-user" class="btn btn-primary float-end">Agregar</a>
+                <p *ngIf="usersList.length === 0" class="text-center h5 py-5">No hay usuarios registrados.</p>
+                <div *ngIf="usersList.length > 0" class="table-responsive w-100">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nombre/s</th>
+                                <th scope="col">Apellido/s</th>
+                                <th scope="col">Fecha de nacimiento</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">DNI</th>
+                                <th scope="col">Área</th>
+                                <th scope="col">Salario</th>
+                                <th scope="col">Activo</th>
+                                <td></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let user of usersList">
+                                <td>{{user.name}}</td>
+                                <td>{{user.lastName}}</td>
+                                <td>{{user.dateOfBirth}}</td>
+                                <td>{{user.email}}</td>
+                                <td>{{user.dni}}</td>
+                                <td>{{user.area}}</td>
+                                <td>{{user.salary | currency}}</td>
+                                <td>{{user.status}}</td>
+                                <td>
+                                    <i [routerLink]="['/edit-user/', user.id]" class="fas fa-edit fa-lg text-info mr-2 cursor-pointer"></i>
+                                    <i (click)="deleteUser(user.id)" class="fas fa-trash-alt fa-lg text-danger cursor-pointer"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

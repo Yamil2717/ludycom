@@ -51,9 +51,12 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -122,8 +125,21 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "ludycom:build:production",
+            "firebaseProject": "ludycom-d2107",
+            "firebaseHostingSite": "ludycom-d2107"
+          }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
